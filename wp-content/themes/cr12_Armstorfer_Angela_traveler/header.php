@@ -17,4 +17,27 @@
   </head> 
 
   
-  
+  <body <?php body_class(); ?>>
+
+    <div class="blog-masthead">
+      <div class="container">
+        
+        <?php wp_nav_menu( array( 
+            'theme_location' => 'header-menu', 
+            'menu_class' => 'blog-nav list-inline' 
+) ); ?>
+      
+      </div>
+    </div>
+
+ <div class="container">
+
+
+  <div class="jumbotron text-center">
+          <h1>The Travel Agency</h1> 
+          <p>We provide the best tips for travelers around the world!</p> 
+        </div>
+
+
+
+      <div class="row">

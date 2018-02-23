@@ -1,5 +1,6 @@
 <?php
 
+// basic adjustments for finding the styles.css and js files
 function bootstrapstarter_enqueue_styles() {
     wp_register_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css' );
     $dependencies = array('bootstrap');
@@ -13,5 +14,21 @@ function bootstrapstarter_enqueue_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'bootstrapstarter_enqueue_styles' );
 add_action( 'wp_enqueue_scripts', 'bootstrapstarter_enqueue_scripts' );
+
+
+// lets wordpress edit the title of the web page //
+function bootstrapstarter_wp_setup() {
+    add_theme_support( 'title-tag' );
+}
+
+add_action( 'after_setup_theme', 'bootstrapstarter_wp_setup' );
+
+
+// lets wordpress edit the menu of the web page //
+function bootstrapstarter_register_menu() {
+    register_nav_menu('header-menu', __( 'Header Menu' ));
+}
+add_action( 'init', 'bootstrapstarter_register_menu' );
+
 
 ?>
